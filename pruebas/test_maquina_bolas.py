@@ -13,9 +13,9 @@ class TestMaquina(unittest.TestCase):
         """ Prueba de existencia"""
         maquina = Maquina()
         self.assertIsNotNone(maquina)
-
+        
     def test_moneda_1E_es_valida(self):
-        """ Prueba de monda de un E"""  
+        """ Prueba de monda de un E"""
         maquina = Maquina()
         resp = maquina.aceptar_moneda(MONEDA)
         self.assertEqual(resp, True) 
@@ -24,7 +24,7 @@ class TestMaquina(unittest.TestCase):
         """ Prueba de moneda de 50cts es incorrecta"""
         maquina = Maquina()
         resp = maquina.aceptar_moneda('Cent_50')
-        self.assertEqual(resp, False) 
+        self.assertEqual(resp, False)
 
     def test_giro_manivela_correcto(self):
         """Si gira correctamente True """
@@ -50,5 +50,8 @@ class TestMaquina(unittest.TestCase):
         self.assertEqual(maquina.deposito, dep-1)
         self.assertEqual(maquina.monedero, mon+1)
 
+    def test_escribir():
 
 
+
+    def test_leer_archivo():    

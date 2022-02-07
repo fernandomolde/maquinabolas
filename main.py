@@ -11,8 +11,7 @@ while SEGUIR:
             giro = int(input('Girar la manivela unos grados (360 = OK)'))
         except ValueError:
             print('Sólo se admiten números enteros.')
-            giro = 0 
-            
+            giro = 0
         if maquina.girar_manivela(giro):
             print(maquina.soltar_bola())
             print(f'Quedan {maquina.deposito} bolas')
@@ -26,3 +25,4 @@ while SEGUIR:
     resp = input('¿Quieres más bolas s/n?').upper()
     if resp == 'N':
         SEGUIR = False
+        

@@ -1,11 +1,15 @@
+
 """
 Maquina expendedora
 """
 
+import csv
+
+RUTA = '/home/fer/Proyectos/maquinabolas'
 
 MONEDA = 'Euro_1'
 BOLA = 'Bola entregada'
-CAPACIDAD = 100 #Nº de bolas que caben en la máquina
+CAPACIDAD = 100 #Nº de bolas que caben en el deposito
 
 class Maquina():
     """ 
@@ -39,3 +43,22 @@ class Maquina():
         self.deposito -=1
         self.monedero +=1
         return BOLA
+
+    def salvar_estado(self):
+        """
+        
+        """
+        with open(RUTA,'w') as escribir:
+            escribir = csv.writer(escribir)
+            escribir.writerow(['Bola'] + [self.deposito])
+            escribir.writerow(['monedero'] + [self.monedero])
+            escribir.writerows(escribir)
+
+
+    def leer_estado(self):
+        with open(RUTA,'r') as leer: 
+            datos_archivo = leer.readline().split(',')
+            self.deposito = int(datos_archivo[0])
+            self.monedero = int(datos_archivo[1])
+
+        
